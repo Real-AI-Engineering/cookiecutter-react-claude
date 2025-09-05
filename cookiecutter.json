@@ -1,0 +1,50 @@
+{
+  "full_name": "Your Name",
+  "email": "your.email@example.com",
+  "github_username": "yourusername",
+  "project_name": "My React Project",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
+  "project_short_description": "A modern React project built with best practices",
+  "first_version": "0.1.0",
+  "node_version": ["20", "18", "22"],
+  "app_type": ["spa", "ssr"],
+  "_vite_or_next": "{% if cookiecutter.app_type == 'spa' %}vite{% else %}next{% endif %}",
+  "ui_library": ["none", "shadcn-ui", "chakra-ui", "material-ui", "daisyui", "flowbite"],
+  "state_management": ["none", "redux-toolkit", "zustand"],
+  "use_i18n": ["y", "n"],
+  "use_a11y": ["y", "n"],
+  "use_docker": ["y", "n"],
+  "use_github_actions": ["y", "n"],
+  "license": ["MIT", "BSD-3-Clause", "Apache-2.0", "GPL-3.0", "Proprietary"],
+  "_use_react_router": "{% if cookiecutter.app_type == 'spa' %}y{% else %}n{% endif %}",
+  "_use_nextjs": "{% if cookiecutter.app_type == 'ssr' %}y{% else %}n{% endif %}",
+  "_ui_library_package": {
+    "none": "",
+    "shadcn-ui": "@radix-ui/react-dialog @radix-ui/react-slot class-variance-authority clsx tailwind-merge lucide-react",
+    "chakra-ui": "@chakra-ui/react @emotion/react @emotion/styled framer-motion",
+    "material-ui": "@mui/material @emotion/react @emotion/styled",
+    "daisyui": "daisyui",
+    "flowbite": "flowbite flowbite-react"
+  },
+  "_state_management_package": {
+    "none": "",
+    "redux-toolkit": "@reduxjs/toolkit react-redux",
+    "zustand": "zustand"
+  },
+  "__prompts__": {
+    "full_name": "Your full name (used in package.json and docs)",
+    "email": "Your email address",
+    "github_username": "Your GitHub username",
+    "project_name": "The name of your React project",
+    "project_short_description": "A short description of the project",
+    "node_version": "Minimum Node.js version to support (LTS recommended)",
+    "app_type": "Application type (spa for Single Page Application with Vite, ssr for Server-Side Rendering with Next.js)",
+    "ui_library": "UI component library (none for no library, shadcn-ui for modern copy-paste components, chakra-ui for modular accessible components, material-ui for Google Material Design, daisyui for Tailwind plugin, flowbite for Tailwind components)",
+    "state_management": "Global state management solution (none for React state only, redux-toolkit for predictable state container, zustand for lightweight state management)",
+    "use_i18n": "Set up internationalization support with react-i18next",
+    "use_a11y": "Include accessibility (a11y) support with ESLint plugin and best practices",
+    "use_docker": "Include Docker configuration for development and production",
+    "use_github_actions": "Set up GitHub Actions CI/CD pipeline",
+    "license": "Choose a license for your project"
+  }
+}
