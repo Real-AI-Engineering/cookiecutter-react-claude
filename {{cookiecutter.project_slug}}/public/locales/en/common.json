@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "title": "{{cookiecutter.project_name}}",
+    "description": "{{cookiecutter.project_short_description}}"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About"
+  },
+  "hero": {
+    "title": "Welcome to {{cookiecutter.project_name}}",
+    "subtitle": "{{cookiecutter.project_short_description}}",
+    "cta": {
+      "primary": "Get Started",
+      "secondary": "View on GitHub"
+    }
+  },
+  "features": {
+    "title": "Features",
+    "subtitle": "Everything you need to build modern React applications",
+    "modern": {
+      "title": "Modern Stack",
+      "description": "Built with React 18, TypeScript, and battle-tested tooling for fast development."
+    },
+    "developer": {
+      "title": "Developer Experience",
+      "description": "Hot reload, strict linting, typed APIs, and ready-to-run tests out of the box."
+    },
+    "design": {
+      "title": "Beautiful Design",
+      "description": "Styled with Tailwind CSS{% if cookiecutter.ui_library != "none" %} and {{cookiecutter.ui_library|replace('-', ' ')|title}} components{% endif %} for accessible, responsive interfaces."
+    }
+  },
+  "counter": {
+    "title": "Counter Example",
+    "description": "Showcases {% if cookiecutter.state_management == "redux-toolkit" %}Redux Toolkit{% elif cookiecutter.state_management == "zustand" %}Zustand{% else %}React state{% endif %} management with predictable updates.",
+    "reset": "Reset"
+  },
+  "pages": {
+    "about": {
+      "title": "About Us",
+      "subtitle": "Learn more about this project",
+      "description": "Discover the goals, stack, and roadmap for {{cookiecutter.project_name}}.",
+      "sections": {
+        "mission": {
+          "title": "Our Mission",
+          "content": "Deliver a pragmatic starter kit so teams can ship reliable interfaces quickly."
+        },
+        "tech": {
+          "title": "Technology Stack"
+        },
+        "contact": {
+          "title": "Get in Touch",
+          "content": "Questions or suggestions? Open an issue or reach out on GitHub."
+        }
+      }
+    }
+  },
+  "footer": {
+    "description": "{{cookiecutter.project_short_description}}",
+    "sections": {
+      "project": {
+        "title": "Project"
+      },
+      "resources": {
+        "title": "Resources",
+        "github": "GitHub",
+        "issues": "Issues",
+        "docs": "Documentation"
+      }
+    },
+    "rights": "All rights reserved.",
+    "built_with": "Built with"
+  }
+}
