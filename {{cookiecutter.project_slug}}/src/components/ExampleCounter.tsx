@@ -1,4 +1,4 @@
-import React{% if cookiecutter.state_management == "none" -%}, { useState }{% endif -%} from 'react'
+import React{% if cookiecutter.state_management == "none" %}, { useState }{% endif %} from 'react'
 {% if cookiecutter.use_i18n == "y" -%}
 import { useTranslation } from '{% if cookiecutter.app_type == "spa" -%}react-i18next{% else -%}next-i18next{% endif -%}'
 {% endif -%}
