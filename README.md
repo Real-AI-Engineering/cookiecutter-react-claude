@@ -2,6 +2,12 @@
 
 A modern, opinionated [Cookiecutter](https://github.com/audreyr/cookiecutter) template for creating React applications with TypeScript and best practices.
 
+## Resources
+
+- Repository: https://github.com/Real-AI-Engineering/cookiecutter-react-claude
+- Documentation: https://github.com/Real-AI-Engineering/cookiecutter-react-claude#readme
+- Issues: https://github.com/Real-AI-Engineering/cookiecutter-react-claude/issues
+
 ## Features
 
 - **Modern React**: Latest React 18+ with TypeScript support
@@ -31,7 +37,7 @@ A modern, opinionated [Cookiecutter](https://github.com/audreyr/cookiecutter) te
 pip install cookiecutter
 
 # Generate your React project
-cookiecutter https://github.com/yourusername/cookiecutter-react-claude
+cookiecutter https://github.com/Real-AI-Engineering/cookiecutter-react-claude
 
 # Or use locally cloned template
 cookiecutter path/to/cookiecutter-react-claude
