@@ -10,21 +10,38 @@ afterEach(() => {
   cleanup()
 })
 
+const globalAny = globalThis as typeof globalThis & {
+  IntersectionObserver: typeof IntersectionObserver
+  ResizeObserver: typeof ResizeObserver
+}
+
 // Mock IntersectionObserver
-global.IntersectionObserver = class IntersectionObserver {
+class MockIntersectionObserver implements IntersectionObserver {
+  readonly root = null
+  readonly rootMargin = ''
+  readonly thresholds: ReadonlyArray<number> = []
+
   constructor() {}
-  disconnect() {}
-  observe() {}
-  unobserve() {}
+
+  disconnect(): void {}
+  observe(_: Element): void {}
+  unobserve(_: Element): void {}
+  takeRecords(): IntersectionObserverEntry[] {
+    return []
+  }
 }
 
 // Mock ResizeObserver
-global.ResizeObserver = class ResizeObserver {
-  constructor() {}
-  disconnect() {}
-  observe() {}
-  unobserve() {}
+class MockResizeObserver implements ResizeObserver {
+  constructor(_callback?: ResizeObserverCallback) {}
+
+  disconnect(): void {}
+  observe(_: Element, _options?: ResizeObserverOptions): void {}
+  unobserve(_: Element): void {}
 }
+
+globalAny.IntersectionObserver = MockIntersectionObserver as unknown as typeof IntersectionObserver
+globalAny.ResizeObserver = MockResizeObserver as unknown as typeof ResizeObserver
 
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {

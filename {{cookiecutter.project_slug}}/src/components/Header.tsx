@@ -344,7 +344,7 @@ export const Header: React.FC = () => {
             {% if cookiecutter.use_i18n == "y" -%}
             <LanguageSwitcher />
             {% endif -%}
-            <Sheet>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button
                   variant="ghost"
@@ -357,17 +357,17 @@ export const Header: React.FC = () => {
               <SheetContent side="left" className="pr-0">
                 <nav className="grid gap-2 text-sm font-medium">
                   {% if cookiecutter.app_type == "spa" -%}
-                  <Link to="/" className="block px-2 py-1 text-lg">
+                  <Link to="/" className="block px-2 py-1 text-lg" onClick={() => setIsOpen(false)}>
                     {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
                   </Link>
-                  <Link to="/about" className="block px-2 py-1 text-lg">
+                  <Link to="/about" className="block px-2 py-1 text-lg" onClick={() => setIsOpen(false)}>
                     {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
                   </Link>
                   {% else -%}
-                  <Link href="/" className="block px-2 py-1 text-lg">
+                  <Link href="/" className="block px-2 py-1 text-lg" onClick={() => setIsOpen(false)}>
                     {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
                   </Link>
-                  <Link href="/about" className="block px-2 py-1 text-lg">
+                  <Link href="/about" className="block px-2 py-1 text-lg" onClick={() => setIsOpen(false)}>
                     {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
                   </Link>
                   {% endif -%}
