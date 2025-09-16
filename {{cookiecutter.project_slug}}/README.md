@@ -65,7 +65,7 @@ Built with **Vite** and **React** for fast development and modern web standards.
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}.git
+   git clone https://github.com/Real-AI-Engineering/cookiecutter-react-claude.git
    cd {{cookiecutter.project_slug}}
    ```
 
@@ -505,8 +505,8 @@ This project is licensed under the {{cookiecutter.license}} License. See the [LI
 
 - 📖 **Documentation**: Check [CLAUDE.md](CLAUDE.md) for Claude Code integration
 - 🛠️ **Development**: See [AGENTS.md](AGENTS.md) for development guidelines
-- 🐛 **Issues**: Report bugs on [GitHub Issues](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/issues)
-- 💬 **Discussions**: Join [GitHub Discussions](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/discussions)
+- 🐛 **Issues**: Report bugs on [GitHub Issues](https://github.com/Real-AI-Engineering/cookiecutter-react-claude/issues)
+- 💬 **Discussions**: Join [GitHub Discussions](https://github.com/Real-AI-Engineering/cookiecutter-react-claude/discussions)
 
 ---
 

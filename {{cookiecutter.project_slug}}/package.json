@@ -160,10 +160,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}.git"
+    "url": "https://github.com/Real-AI-Engineering/cookiecutter-react-claude.git"
   },
   "bugs": {
-    "url": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/issues"
+    "url": "https://github.com/Real-AI-Engineering/cookiecutter-react-claude/issues"
   },
-  "homepage": "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}#readme"
+  "homepage": "https://github.com/Real-AI-Engineering/cookiecutter-react-claude#readme"
 }
