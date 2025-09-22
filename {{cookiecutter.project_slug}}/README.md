@@ -8,6 +8,45 @@ Built with **Next.js** for server-side rendering and optimal SEO performance.
 Built with **Vite** and **React** for fast development and modern web standards.
 {% endif -%}
 
+{% if cookiecutter.use_claude_pm == "y" -%}
+## 🚀 Claude Code PM System
+
+This project includes the Claude Code PM system for spec-driven development with full GitHub Issues integration.
+
+### Quick Start with PM System
+
+```bash
+# Initialize the PM system (one-time setup)
+/pm:init
+
+# Create your first feature specification
+/pm:prd-new user-dashboard
+
+# Transform specification into technical implementation plan
+/pm:prd-parse user-dashboard
+
+# Push to GitHub and start parallel development
+/pm:epic-oneshot user-dashboard
+```
+
+### Key PM Features
+
+- **📋 Spec-Driven Development**: Every line of code traces back to a specification
+- **🔄 GitHub Native**: Uses GitHub Issues as source of truth for all work
+- **⚡ Parallel Execution**: Multiple AI agents working simultaneously on different tasks
+- **🧠 Context Preservation**: Maintains project state across all sessions
+- **📊 Full Traceability**: Complete audit trail from idea to production
+
+### Available PM Commands
+
+- `/pm:help` - Show all PM commands
+- `/pm:next` - Get next priority task
+- `/pm:status` - Project dashboard
+- `/pm:standup` - Daily progress report
+
+See [AGENTS.md](AGENTS.md) for complete command reference.
+
+{% endif -%}
 ## Features
 
 - ⚡ **Modern Stack**: React 18+ with TypeScript

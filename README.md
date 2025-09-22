@@ -21,6 +21,7 @@ A modern, opinionated [Cookiecutter](https://github.com/audreyr/cookiecutter) te
 - **Internationalization**: Optional i18n support with react-i18next
 - **Accessibility**: Optional a11y support with ESLint rules
 - **Claude Code Ready**: Includes CLAUDE.md and AGENTS.md for AI development
+- **PM System**: Optional Claude Code PM for spec-driven development with GitHub Issues
 
 ## Quick Start
 
@@ -62,6 +63,7 @@ You'll be prompted to configure your project:
 | `use_a11y` | Accessibility support | y, n |
 | `use_docker` | Docker configuration | y, n |
 | `use_github_actions` | CI/CD pipeline | y, n |
+| `use_claude_pm` | Claude Code PM system | y, n |
 | `license` | Project license | MIT, BSD-3-Clause, Apache-2.0, GPL-3.0, Proprietary |
 
 ## UI Library Options

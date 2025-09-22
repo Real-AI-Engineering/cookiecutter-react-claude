@@ -15,6 +15,7 @@
   "use_a11y": ["y", "n"],
   "use_docker": ["y", "n"],
   "use_github_actions": ["y", "n"],
+  "use_claude_pm": ["y", "n"],
   "license": ["MIT", "BSD-3-Clause", "Apache-2.0", "GPL-3.0", "Proprietary"],
   "_use_react_router": "{% if cookiecutter.app_type == 'spa' %}y{% else %}n{% endif %}",
   "_use_nextjs": "{% if cookiecutter.app_type == 'ssr' %}y{% else %}n{% endif %}",
@@ -45,6 +46,7 @@
     "use_a11y": "Include accessibility (a11y) support with ESLint plugin and best practices",
     "use_docker": "Include Docker configuration for development and production",
     "use_github_actions": "Set up GitHub Actions CI/CD pipeline",
+    "use_claude_pm": "Include Claude Code PM system (spec-driven development with GitHub Issues)",
     "license": "Choose a license for your project"
   }
 }

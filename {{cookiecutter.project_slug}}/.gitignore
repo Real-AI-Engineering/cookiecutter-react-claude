@@ -152,3 +152,10 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 *.lnk
+
+{% if cookiecutter.use_claude_pm == "y" -%}
+# Claude Code PM System
+.claude/epics/
+.claude/context/
+.claude/settings.local.json
+{% endif -%}
