@@ -158,4 +158,40 @@ $RECYCLE.BIN/
 .claude/epics/
 .claude/context/
 .claude/settings.local.json
+
+# CCPM React-specific patterns
+# Epic-specific environments
+.claude/epics/*/node_modules/
+.claude/epics/*/.env.local
+.claude/epics/*/.env.test
+.claude/epics/*/dist/
+.claude/epics/*/build/
+.claude/epics/*/.next/
+.claude/epics/*/coverage/
+.claude/epics/*/.turbo/
+
+# Testing artifacts
+.claude/test-results/
+.claude/playwright-report/
+.claude/test-coverage/
+.claude/lighthouse-reports/
+
+# Build artifacts
+.claude/bundle-reports/
+.claude/stats.json
+
+# Temporary files
+.claude/tmp/
+.claude/cache/
+
+# Editor configs in epics
+.claude/epics/*/.vscode/
+.claude/epics/*/.idea/
+
+# Logs
+.claude/logs/
+*.log
+
+# Storybook in epics
+.claude/storybook-static/
 {% endif -%}
