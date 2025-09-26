@@ -159,15 +159,9 @@ export const Header: React.FC = () => {
             <Link to="/">
               <Button variant="ghost">{t ? t('nav.home') : 'Home'}</Button>
             </Link>
-            <Link to="/about">
-              <Button variant="ghost">{t ? t('nav.about') : 'About'}</Button>
-            </Link>
             {% else -%}
             <Link href="/" passHref>
               <Button variant="ghost">{t ? t('nav.home') : 'Home'}</Button>
-            </Link>
-            <Link href="/about" passHref>
-              <Button variant="ghost">{t ? t('nav.about') : 'About'}</Button>
             </Link>
             {% endif -%}
           </HStack>
@@ -198,15 +192,9 @@ export const Header: React.FC = () => {
           <Link to="/">
             <Button variant="ghost" w="full">{t ? t('nav.home') : 'Home'}</Button>
           </Link>
-          <Link to="/about">
-            <Button variant="ghost" w="full">{t ? t('nav.about') : 'About'}</Button>
-          </Link>
           {% else -%}
           <Link href="/" passHref>
             <Button variant="ghost" w="full">{t ? t('nav.home') : 'Home'}</Button>
-          </Link>
-          <Link href="/about" passHref>
-            <Button variant="ghost" w="full">{t ? t('nav.about') : 'About'}</Button>
           </Link>
           {% endif -%}
         </VStack>
@@ -231,15 +219,9 @@ export const Header: React.FC = () => {
               <Link to="/">
                 <Button color="inherit">{t ? t('nav.home') : 'Home'}</Button>
               </Link>
-              <Link to="/about">
-                <Button color="inherit">{t ? t('nav.about') : 'About'}</Button>
-              </Link>
               {% else -%}
               <Link href="/" passHref>
                 <Button color="inherit">{t ? t('nav.home') : 'Home'}</Button>
-              </Link>
-              <Link href="/about" passHref>
-                <Button color="inherit">{t ? t('nav.about') : 'About'}</Button>
               </Link>
               {% endif -%}
               <ThemeToggle />
@@ -273,15 +255,9 @@ export const Header: React.FC = () => {
             <ListItem component={Link} to="/" onClick={() => setIsOpen(false)}>
               <ListItemText primary={t ? t('nav.home') : 'Home'} />
             </ListItem>
-            <ListItem component={Link} to="/about" onClick={() => setIsOpen(false)}>
-              <ListItemText primary={t ? t('nav.about') : 'About'} />
-            </ListItem>
             {% else -%}
             <ListItem component={Link} href="/" onClick={() => setIsOpen(false)}>
               <ListItemText primary={t ? t('nav.home') : 'Home'} />
-            </ListItem>
-            <ListItem component={Link} href="/about" onClick={() => setIsOpen(false)}>
-              <ListItemText primary={t ? t('nav.about') : 'About'} />
             </ListItem>
             {% endif -%}
             {% if cookiecutter.use_i18n == "y" -%}
@@ -314,24 +290,12 @@ export const Header: React.FC = () => {
             >
               {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
             </Link>
-            <Link
-              to="/about"
-              className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground"
-            >
-              {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
-            </Link>
             {% else -%}
             <Link
               href="/"
               className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground"
             >
               {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
-            </Link>
-            <Link
-              href="/about"
-              className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground"
-            >
-              {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
             </Link>
             {% endif -%}
           </nav>
@@ -360,15 +324,9 @@ export const Header: React.FC = () => {
                   <Link to="/" className="block px-2 py-1 text-lg" onClick={() => setIsOpen(false)}>
                     {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
                   </Link>
-                  <Link to="/about" className="block px-2 py-1 text-lg" onClick={() => setIsOpen(false)}>
-                    {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
-                  </Link>
                   {% else -%}
                   <Link href="/" className="block px-2 py-1 text-lg" onClick={() => setIsOpen(false)}>
                     {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
-                  </Link>
-                  <Link href="/about" className="block px-2 py-1 text-lg" onClick={() => setIsOpen(false)}>
-                    {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
                   </Link>
                   {% endif -%}
                 </nav>
@@ -405,12 +363,6 @@ export const Header: React.FC = () => {
             >
               {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
             </Link>
-            <Link
-              to="/about"
-              className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
-            >
-              {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
-            </Link>
             {% else -%}
             <Link
               href="/"
@@ -421,16 +373,6 @@ export const Header: React.FC = () => {
               }`}
             >
               {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
-            </Link>
-            <Link
-              href="/about"
-              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                router.pathname === '/about' 
-                  ? 'text-blue-600 dark:text-blue-400' 
-                  : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
-              }`}
-            >
-              {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
             </Link>
             {% endif -%}
           </nav>
@@ -473,13 +415,6 @@ export const Header: React.FC = () => {
               >
                 {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
               </Link>
-              <Link
-                to="/about"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
-              </Link>
               {% else -%}
               <Link
                 href="/"
@@ -491,17 +426,6 @@ export const Header: React.FC = () => {
                 onClick={() => setIsOpen(false)}
               >
                 {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
-              </Link>
-              <Link
-                href="/about"
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                  router.pathname === '/about' 
-                    ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20' 
-                    : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800'
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
               </Link>
               {% endif -%}
               {% if cookiecutter.use_i18n == "y" -%}

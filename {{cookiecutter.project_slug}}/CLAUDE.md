@@ -37,6 +37,46 @@ When solving problems:
 
 Remember: The best code is code that doesn't need to be written.
 
+## Initial Setup Instructions
+
+**IMPORTANT**: This template contains demonstration components that should be removed when starting a new project. LLM agents working on this codebase should immediately:
+
+### 1. Remove Demo Components (Required)
+Delete these demo files completely:
+- `src/components/ExampleCounter.tsx` (or `components/ExampleCounter.tsx` for Next.js)
+- `src/components/Hero.tsx` (or `components/Hero.tsx` for Next.js)
+- `src/components/Features.tsx` (or `components/Features.tsx` for Next.js)
+- `src/pages/About.tsx` (or `pages/about.tsx` for Next.js)
+- `tests/components/ExampleCounter.test.tsx`
+
+### 2. Clean State Management
+- Delete `src/stores/slices/counterSlice.ts` (or `lib/stores/slices/counterSlice.ts` for Next.js)
+- Remove counter references from store configuration files
+- Clean up Zustand store from counter-related state
+
+### 3. Clean Home Page
+Replace Home page content with minimal starter:
+```tsx
+export const Home: React.FC = () => {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold">Welcome to {{cookiecutter.project_name}}</h1>
+      <p className="mt-4 text-gray-600">Start building your application here.</p>
+      {/* Add your components here */}
+    </div>
+  )
+}
+```
+
+### 4. Update Navigation
+- Remove About page link from navigation
+- Keep only essential navigation items
+
+### 5. Clean Translations (if using i18n)
+Remove demo-specific translation keys like `counter.*`, `hero.*`, `features.*`, `pages.about.*`
+
+**After completing these steps**, you'll have a clean starting point for building the actual application without demo clutter.
+
 ## Project Structure
 
 ```

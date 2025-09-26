@@ -3,9 +3,6 @@ import React from 'react'
 {% if cookiecutter.use_i18n == "y" -%}
 import { useTranslation } from 'react-i18next'
 {% endif -%}
-import { Hero } from '../components/Hero'
-import { Features } from '../components/Features'
-import { ExampleCounter } from '../components/ExampleCounter'
 
 export const Home: React.FC = () => {
 {% if cookiecutter.use_i18n == "y" -%}
@@ -18,10 +15,10 @@ export const Home: React.FC = () => {
 
 {% endif -%}
   return (
-    <div className="space-y-16">
-      <Hero />
-      <Features />
-      <ExampleCounter />
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold">Welcome to {{cookiecutter.project_name}}</h1>
+      <p className="mt-4 text-gray-600">Start building your application here.</p>
+      {/* Add your components here */}
     </div>
   )
 }

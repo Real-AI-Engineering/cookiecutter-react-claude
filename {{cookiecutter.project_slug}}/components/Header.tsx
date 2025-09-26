@@ -1,10 +1,12 @@
-{% if cookiecutter._use_nextjs == "y" -%}
-// For Next.js projects, this is a copy of src/components/Header.tsx
 import React, { useState } from 'react'
+{% if cookiecutter.app_type == "spa" -%}
+import { Link } from 'react-router-dom'
+{% else -%}
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+{% endif -%}
 {% if cookiecutter.use_i18n == "y" -%}
-import { useTranslation } from 'next-i18next'
+import { useTranslation } from '{% if cookiecutter.app_type == "spa" -%}react-i18next{% else -%}next-i18next{% endif -%}'
 {% endif -%}
 {% if cookiecutter.ui_library == "chakra-ui" -%}
 import {
@@ -134,7 +136,9 @@ export const Header: React.FC = () => {
 {% if cookiecutter.use_i18n == "y" -%}
   const { t } = useTranslation()
 {% endif -%}
+{% if cookiecutter.app_type == "ssr" -%}
   const router = useRouter()
+{% endif -%}
   const [isOpen, setIsOpen] = useState(false)
 
 {% if cookiecutter.ui_library == "chakra-ui" -%}
@@ -151,12 +155,15 @@ export const Header: React.FC = () => {
 
         <HStack spacing={8} alignItems="center">
           <HStack as="nav" spacing={4} display={{"{{ base: 'none', md: 'flex' }}"}}>
+            {% if cookiecutter.app_type == "spa" -%}
+            <Link to="/">
+              <Button variant="ghost">{t ? t('nav.home') : 'Home'}</Button>
+            </Link>
+            {% else -%}
             <Link href="/" passHref>
               <Button variant="ghost">{t ? t('nav.home') : 'Home'}</Button>
             </Link>
-            <Link href="/about" passHref>
-              <Button variant="ghost">{t ? t('nav.about') : 'About'}</Button>
-            </Link>
+            {% endif -%}
           </HStack>
 
           <HStack spacing={2}>
@@ -181,12 +188,15 @@ export const Header: React.FC = () => {
           pb={4}
           spacing={4}
         >
+          {% if cookiecutter.app_type == "spa" -%}
+          <Link to="/">
+            <Button variant="ghost" w="full">{t ? t('nav.home') : 'Home'}</Button>
+          </Link>
+          {% else -%}
           <Link href="/" passHref>
             <Button variant="ghost" w="full">{t ? t('nav.home') : 'Home'}</Button>
           </Link>
-          <Link href="/about" passHref>
-            <Button variant="ghost" w="full">{t ? t('nav.about') : 'About'}</Button>
-          </Link>
+          {% endif -%}
         </VStack>
       </Collapse>
     </Box>
@@ -205,12 +215,15 @@ export const Header: React.FC = () => {
 
           {!isMobile ? (
             <Box sx={{"{{ display: 'flex', alignItems: 'center', gap: 2 }}"}}>
+              {% if cookiecutter.app_type == "spa" -%}
+              <Link to="/">
+                <Button color="inherit">{t ? t('nav.home') : 'Home'}</Button>
+              </Link>
+              {% else -%}
               <Link href="/" passHref>
                 <Button color="inherit">{t ? t('nav.home') : 'Home'}</Button>
               </Link>
-              <Link href="/about" passHref>
-                <Button color="inherit">{t ? t('nav.about') : 'About'}</Button>
-              </Link>
+              {% endif -%}
               <ThemeToggle />
               {% if cookiecutter.use_i18n == "y" -%}
               <LanguageSwitcher />
@@ -238,12 +251,15 @@ export const Header: React.FC = () => {
       >
         <Box sx={{"{{ width: 250, pt: 2 }}"}}>
           <List>
+            {% if cookiecutter.app_type == "spa" -%}
+            <ListItem component={Link} to="/" onClick={() => setIsOpen(false)}>
+              <ListItemText primary={t ? t('nav.home') : 'Home'} />
+            </ListItem>
+            {% else -%}
             <ListItem component={Link} href="/" onClick={() => setIsOpen(false)}>
               <ListItemText primary={t ? t('nav.home') : 'Home'} />
             </ListItem>
-            <ListItem component={Link} href="/about" onClick={() => setIsOpen(false)}>
-              <ListItemText primary={t ? t('nav.about') : 'About'} />
-            </ListItem>
+            {% endif -%}
             {% if cookiecutter.use_i18n == "y" -%}
             <ListItem>
               <LanguageSwitcher />
@@ -259,22 +275,29 @@ export const Header: React.FC = () => {
     <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <div className="flex gap-6 md:gap-10">
+          {% if cookiecutter.app_type == "spa" -%}
+          <Link to="/" className="flex items-center space-x-2">
+          {% else -%}
           <Link href="/" className="flex items-center space-x-2">
+          {% endif -%}
             <span className="inline-block font-bold">{{cookiecutter.project_name}}</span>
           </Link>
           <nav className="hidden gap-6 md:flex">
+            {% if cookiecutter.app_type == "spa" -%}
+            <Link
+              to="/"
+              className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground"
+            >
+              {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
+            </Link>
+            {% else -%}
             <Link
               href="/"
               className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground"
             >
               {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
             </Link>
-            <Link
-              href="/about"
-              className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground"
-            >
-              {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
-            </Link>
+            {% endif -%}
           </nav>
         </div>
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
@@ -285,7 +308,7 @@ export const Header: React.FC = () => {
             {% if cookiecutter.use_i18n == "y" -%}
             <LanguageSwitcher />
             {% endif -%}
-            <Sheet>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button
                   variant="ghost"
@@ -297,12 +320,15 @@ export const Header: React.FC = () => {
               </SheetTrigger>
               <SheetContent side="left" className="pr-0">
                 <nav className="grid gap-2 text-sm font-medium">
-                  <Link href="/" className="block px-2 py-1 text-lg">
+                  {% if cookiecutter.app_type == "spa" -%}
+                  <Link to="/" className="block px-2 py-1 text-lg" onClick={() => setIsOpen(false)}>
                     {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
                   </Link>
-                  <Link href="/about" className="block px-2 py-1 text-lg">
-                    {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
+                  {% else -%}
+                  <Link href="/" className="block px-2 py-1 text-lg" onClick={() => setIsOpen(false)}>
+                    {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
                   </Link>
+                  {% endif -%}
                 </nav>
               </SheetContent>
             </Sheet>
@@ -317,7 +343,11 @@ export const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
+            {% if cookiecutter.app_type == "spa" -%}
+            <Link to="/" className="flex-shrink-0">
+            {% else -%}
             <Link href="/" className="flex-shrink-0">
+            {% endif -%}
               <span className="text-xl font-bold text-gray-900 dark:text-gray-100">
                 {{cookiecutter.project_name}}
               </span>
@@ -326,6 +356,14 @@ export const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
+            {% if cookiecutter.app_type == "spa" -%}
+            <Link
+              to="/"
+              className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+            >
+              {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
+            </Link>
+            {% else -%}
             <Link
               href="/"
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
@@ -336,16 +374,7 @@ export const Header: React.FC = () => {
             >
               {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
             </Link>
-            <Link
-              href="/about"
-              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                router.pathname === '/about' 
-                  ? 'text-blue-600 dark:text-blue-400' 
-                  : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
-              }`}
-            >
-              {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
-            </Link>
+            {% endif -%}
           </nav>
 
           {/* Theme Toggle & Mobile Menu Button */}
@@ -378,6 +407,15 @@ export const Header: React.FC = () => {
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200 dark:border-gray-700">
+              {% if cookiecutter.app_type == "spa" -%}
+              <Link
+                to="/"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
+              </Link>
+              {% else -%}
               <Link
                 href="/"
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
@@ -389,17 +427,7 @@ export const Header: React.FC = () => {
               >
                 {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.home') : 'Home'}{% else -%}Home{% endif -%}
               </Link>
-              <Link
-                href="/about"
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
-                  router.pathname === '/about' 
-                    ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20' 
-                    : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800'
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {% if cookiecutter.use_i18n == "y" -%}{t ? t('nav.about') : 'About'}{% else -%}About{% endif -%}
-              </Link>
+              {% endif -%}
               {% if cookiecutter.use_i18n == "y" -%}
               <div className="px-3 py-2">
                 <LanguageSwitcher />
@@ -413,10 +441,3 @@ export const Header: React.FC = () => {
   )
 {% endif -%}
 }
-{% else -%}
-// This component is used for Next.js projects
-// For SPA projects, use src/components/Header.tsx instead
-export const Header = () => {
-  return <div>Next.js Header Component</div>
-}
-{% endif -%}

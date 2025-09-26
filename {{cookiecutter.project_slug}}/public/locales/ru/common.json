@@ -4,57 +4,7 @@
     "description": "{{cookiecutter.project_short_description}}"
   },
   "nav": {
-    "home": "Главная",
-    "about": "О нас"
-  },
-  "hero": {
-    "title": "Добро пожаловать в {{cookiecutter.project_name}}",
-    "subtitle": "{{cookiecutter.project_short_description}}",
-    "cta": {
-      "primary": "Начать",
-      "secondary": "Открыть GitHub"
-    }
-  },
-  "features": {
-    "title": "Возможности",
-    "subtitle": "Все, что нужно для современных React-приложений",
-    "modern": {
-      "title": "Современный стек",
-      "description": "React 18, TypeScript и надежные инструменты для быстрой разработки."
-    },
-    "developer": {
-      "title": "Удобство для разработчиков",
-      "description": "Горячая перезагрузка, строгий линтинг, типизированные API и готовые тесты."
-    },
-    "design": {
-      "title": "Красивый дизайн",
-      "description": "Стилевой набор на Tailwind CSS{% if cookiecutter.ui_library != "none" %} и компоненты {{cookiecutter.ui_library|replace('-', ' ')|title}}{% endif %} для доступных адаптивных интерфейсов."
-    }
-  },
-  "counter": {
-    "title": "Пример счётчика",
-    "description": "Показывает управление {% if cookiecutter.state_management == "redux-toolkit" %}Redux Toolkit{% elif cookiecutter.state_management == "zustand" %}Zustand{% else %}состоянием React{% endif %} с предсказуемыми обновлениями.",
-    "reset": "Сброс"
-  },
-  "pages": {
-    "about": {
-      "title": "О проекте",
-      "subtitle": "Узнайте больше об этом шаблоне",
-      "description": "Цели, стек и планы развития {{cookiecutter.project_name}}.",
-      "sections": {
-        "mission": {
-          "title": "Наша миссия",
-          "content": "Дать практичный стартовый набор, чтобы команды быстрее создавали надежные интерфейсы."
-        },
-        "tech": {
-          "title": "Технологический стек"
-        },
-        "contact": {
-          "title": "Связаться",
-          "content": "Есть вопросы или идеи? Создайте issue или напишите нам на GitHub."
-        }
-      }
-    }
+    "home": "Главная"
   },
   "footer": {
     "description": "{{cookiecutter.project_short_description}}",

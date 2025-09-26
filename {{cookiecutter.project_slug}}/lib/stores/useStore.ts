@@ -2,41 +2,7 @@
 import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 
-interface CounterStore {
-  count: number
-  loading: boolean
-  increment: () => void
-  decrement: () => void
-  incrementByAmount: (amount: number) => void
-  reset: () => void
-  setLoading: (loading: boolean) => void
-}
-
-export const useCounterStore = create<CounterStore>()(
-  devtools(
-    persist(
-      (set) => ({
-        count: 0,
-        loading: false,
-        increment: () => set((state) => ({ count: state.count + 1 })),
-        decrement: () => set((state) => ({ count: state.count - 1 })),
-        incrementByAmount: (amount) => set((state) => ({ count: state.count + amount })),
-        reset: () => set({ count: 0 }),
-        setLoading: (loading) => set({ loading }),
-      }),
-      {
-        name: 'counter-storage', // unique name
-        // Only persist the count, not loading state
-        partialize: (state) => ({ count: state.count }),
-      }
-    ),
-    {
-      name: 'counter-store',
-    }
-  )
-)
-
-// Optional: Create additional stores for other features
+// Create your application stores here
 interface AppStore {
   theme: 'light' | 'dark'
   language: string

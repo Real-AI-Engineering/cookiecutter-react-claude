@@ -1,10 +1,9 @@
 {% if cookiecutter._use_nextjs == "y" and cookiecutter.state_management == "redux-toolkit" -%}
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './slices/counterSlice'
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    // Add your reducers here
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
