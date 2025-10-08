@@ -204,6 +204,12 @@ This template includes CLAUDE.md and AGENTS.md files that provide:
 
 These files help Claude Code understand your project structure and provide more accurate assistance.
 
+### PM System Usage
+
+If you enabled the Claude Code PM system (`use_claude_pm: y`), see the detailed usage guide:
+
+📘 **[PM System Usage Guide](PM_USAGE_RU.md)** - Comprehensive scenarios for spec-driven development with GitHub Issues integration (English + Russian)
+
 ## Contributing
 
 1. Fork this repository
